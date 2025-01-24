@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Chat } from '../components/chat';
+import { Chat } from '../components/Chat';
 
 export function Tools() {
   useEffect(() => {
@@ -16,11 +16,11 @@ export function Tools() {
   }, []);
 
   return (
-    <div className="ml-[35px] flex w-full flex-col items-center">
+    <div className="ml-[35px] flex w-full h-screen flex-col items-center">
       <h1 className="mb-[50px] place-self-start font-playfairDisplay text-xl italic text-secondary">
         Tools
       </h1>
-      <div className="w-[60%]">
+      <div className="h-screen w-[60%]">
         <Chat />
       </div>
     </div>

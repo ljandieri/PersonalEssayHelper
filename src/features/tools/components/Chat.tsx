@@ -34,7 +34,7 @@ export function Chat() {
 
   return (
     <>
-      <ScrollArea className="h-[500px]rounded bg mb-5 rounded-2xl border-[2px] border-primary p-5">
+      <ScrollArea className="h-[50%] rounded bg mb-5 rounded-2xl border-[2px] border-primary p-5">
         {userMessages.map((userMessage, index) => {
           return (
             <div className="mb-4 flex flex-col space-y-4" key={index}>
