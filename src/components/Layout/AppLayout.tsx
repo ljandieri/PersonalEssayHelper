@@ -3,7 +3,7 @@ import { Sidebar } from './components/Sidebar';
 
 export function AppLayout() {
   return (
-    <div className="flex p-12">
+    <div className="flex w-full p-[70px]">
       <Sidebar />
       <Outlet />
     </div>

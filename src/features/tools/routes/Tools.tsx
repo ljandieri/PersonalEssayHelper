@@ -1,7 +1,28 @@
+import { useEffect, useState } from 'react';
+import { Chat } from '../components/chat';
+
 export function Tools() {
+  useEffect(() => {
+    // async function fetchData() {
+    //   const data = {
+    //     model: 'gpt-3.5-turbo',
+    //     messages: [{ role: 'user', content: 'Hello' }],
+    //     max_tokens: 50,
+    //   };
+    //   const res = await axiosClient.post('', data);
+    //   console.log(res);
+    // }
+    //fetchData();
+  }, []);
+
   return (
-    <>
-      <h1 className="font-playfairDisplay text-xl italic text-secondary">Tools</h1>
-    </>
+    <div className="ml-[35px] flex w-full flex-col items-center">
+      <h1 className="mb-[50px] place-self-start font-playfairDisplay text-xl italic text-secondary">
+        Tools
+      </h1>
+      <div className="w-[60%]">
+        <Chat />
+      </div>
+    </div>
   );
 }
