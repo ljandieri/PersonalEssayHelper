@@ -4,13 +4,18 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Textarea } from '@/components/ui/textarea';
 import { axiosClient } from '@/lib/axios';
 
+interface ChatHistory {
+  role: 'system' | 'user' | 'assistant';
+  content: string;
+}
+
 export function Chat() {
   const [message, setMessage] = useState('');
   const [userMessages, setUserMessages] = useState<string[]>([]);
   const [chatResponses, setChatResponses] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleMessageChange = (event) => {
+  const handleMessageChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(event.target.value);
   };
 
@@ -19,9 +24,18 @@ export function Chat() {
     setMessage('');
     setUserMessages((prevMessages) => [...prevMessages, message]);
 
+    const chatHistory: ChatHistory[] = [];
+
+    for (let i = 0; i < userMessages.length; i++) {
+      chatHistory.push({ role: 'user', content: userMessages[i] });
+      if (chatResponses[i]) {
+        chatHistory.push({ role: 'assistant', content: chatResponses[i] });
+      }
+    }
+
     const data = {
       model: 'gpt-4o-mini',
-      messages: [{ role: 'user', content: message }],
+      messages: [...chatHistory, { role: 'user', content: message }],
       max_tokens: 50,
     };
 
@@ -34,7 +48,7 @@ export function Chat() {
 
   return (
     <>
-      <ScrollArea className="h-[50%] rounded bg mb-5 rounded-2xl border-[2px] border-primary p-5">
+      <ScrollArea className="bg mb-5 h-[50%] rounded-2xl border-[2px] border-primary p-5">
         {userMessages.map((userMessage, index) => {
           return (
             <div className="mb-4 flex flex-col space-y-4" key={index}>
