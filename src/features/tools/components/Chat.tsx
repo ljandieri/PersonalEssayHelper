@@ -19,10 +19,20 @@ export function Chat() {
     setMessage('');
     setUserMessages((prevMessages) => [...prevMessages, message]);
 
+    const messages: { role: string; content: string }[] = [
+    ];
+
+    for (let i = 0; i < userMessages.length; i++) {
+      messages.push({ role: "user", content: userMessages[i] });
+      if (chatResponses[i]) {
+          messages.push({ role: "assistant", content: chatResponses[i] });
+      }
+  }
+
     const data = {
       model: 'gpt-4o-mini',
-      messages: [{ role: 'user', content: message }],
-      max_tokens: 50,
+      messages: [...messages, { role: 'user', content: message }],
+      max_tokens: 300,
     };
 
     const res = await axiosClient.post('', data);
