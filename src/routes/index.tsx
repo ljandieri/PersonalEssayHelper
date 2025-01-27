@@ -6,6 +6,8 @@ import { Tools } from '@/features/tools';
 import { Shop } from '@/features/shop';
 import { Account } from '@/features/account';
 import { Help } from '@/features/help';
+import { SignUp } from '@/features/authentication';
+import { SignIn } from '@/features/authentication/routes/SignIn';
 
 export function AppRoutes() {
   const routes = [
@@ -42,6 +44,14 @@ export function AppRoutes() {
           element: <Help />,
         },
       ],
+    },
+    {
+      path: '/signup',
+      element: <SignUp />,
+    },
+    {
+      path: '/signin',
+      element: <SignIn />,
     },
   ];
 
