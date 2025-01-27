@@ -10,12 +10,12 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { signInUser } from '../api/signin';
+import { useSignIn } from '../api/signIn';
+import { LoadingButton } from '@/components/Elements/Button/LoadingButton';
 
 const formSchema = z.object({
-  email: z.string().email('Invalid email address').nonempty('Email is required'),
-  password: z.string(),
+  email: z.string().email('Invalid email address').nonempty('Please provide your email'),
+  password: z.string().nonempty('Please provide your password'),
 });
 
 export function SignInForm() {
@@ -26,10 +26,12 @@ export function SignInForm() {
       password: '',
     },
   });
+  const { isPending, signIn } = useSignIn();
 
   const onSignIn = async (values: z.infer<typeof formSchema>) => {
-    const user = await signInUser(values.email, values.password);
-    console.log(user);
+    signIn({ email: values.email, password: values.password });
+    // const user = await signInUser(values.email, values.password);
+    // console.log(user);
   };
 
   return (
@@ -61,7 +63,9 @@ export function SignInForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Sign In</Button>
+        <LoadingButton isSubmit={true} isLoading={isPending}>
+          Sign In
+        </LoadingButton>
       </form>
     </Form>
   );

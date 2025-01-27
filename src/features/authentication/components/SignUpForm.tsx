@@ -10,8 +10,8 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { registerUser } from '../api/signUp';
+import { useSignUp } from '../api/signUp';
+import { LoadingButton } from '@/components/Elements/Button/LoadingButton';
 
 const formSchema = z
   .object({
@@ -33,9 +33,11 @@ export function SignUpForm() {
       confirm: '',
     },
   });
+  const { isPending, signUp } = useSignUp();
 
   const onSignUp = (values: z.infer<typeof formSchema>) => {
-    registerUser(values.email, values.password);
+    signUp({ email: values.email, password: values.password });
+    //registerUser(values.email, values.password);
   };
 
   return (
@@ -80,7 +82,9 @@ export function SignUpForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Sign Up</Button>
+        <LoadingButton isSubmit={true} isLoading={isPending}>
+          Sign Up
+        </LoadingButton>
       </form>
     </Form>
   );
