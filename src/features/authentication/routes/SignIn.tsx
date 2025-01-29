@@ -1,10 +1,10 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { SignInForm } from '../components/SignInForm';
 import { Link, useNavigate } from 'react-router-dom';
-import { GoogleButton } from '@/components/Elements/Button/GoogleButton';
 import { useEffect } from 'react';
 import { useAuth } from '../providers/AuthProvider';
 import { LoadingPage } from '@/components/Elements/LoadingPage';
+import { GoogleAuthButton } from '../components/GoogleAuthButton';
 
 export function SignIn() {
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ export function SignIn() {
           <CardDescription>Please provide necessary information to sign in</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col">
-          <GoogleButton />
+          <GoogleAuthButton />
           <div className="relative my-4">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-gray-300" />
