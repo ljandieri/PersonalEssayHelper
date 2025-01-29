@@ -3,71 +3,71 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Caudex";
-  src: url("./assets/fonts/Caudex-Regular.ttf") format("truetype");
+  font-family: 'Caudex';
+  src: url('./assets/fonts/Caudex-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Caudex";
-  src: url("./assets/fonts/Caudex-Italic.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Caudex";
-  src: url("./assets/fonts/Caudex-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Caudex";
-  src: url("./assets/fonts/Caudex-BoldItalic.ttf") format("truetype");
-  font-weight: 700;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "PlayfairDisplay";
-  src: url("./assets/fonts/PlayfairDisplay-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "PlayfairDisplay";
-  src: url("./assets/fonts/PlayfairDisplay-Italic.ttf") format("truetype");
+  font-family: 'Caudex';
+  src: url('./assets/fonts/Caudex-Italic.ttf') format('truetype');
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "PlayfairDisplay";
-  src: url("./assets/fonts/PlayfairDisplay-Bold.ttf") format("truetype");
+  font-family: 'Caudex';
+  src: url('./assets/fonts/Caudex-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "PlayfairDisplay";
-  src: url("./assets/fonts/PlayfairDisplay-BoldItalic.ttf") format("truetype");
+  font-family: 'Caudex';
+  src: url('./assets/fonts/Caudex-BoldItalic.ttf') format('truetype');
   font-weight: 700;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "DarkerGrotesque";
-  src: url("./assets/fonts/DarkerGrotesque-Regular.ttf") format("truetype");
+  font-family: 'PlayfairDisplay';
+  src: url('./assets/fonts/PlayfairDisplay-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "DarkerGrotesque";
-  src: url("./assets/fonts/DarkerGrotesque-Bold.ttf") format("truetype");
+  font-family: 'PlayfairDisplay';
+  src: url('./assets/fonts/PlayfairDisplay-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PlayfairDisplay';
+  src: url('./assets/fonts/PlayfairDisplay-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PlayfairDisplay';
+  src: url('./assets/fonts/PlayfairDisplay-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'DarkerGrotesque';
+  src: url('./assets/fonts/DarkerGrotesque-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DarkerGrotesque';
+  src: url('./assets/fonts/DarkerGrotesque-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
 }
@@ -90,8 +90,8 @@
     --accent-foreground: 220.9 39.3% 11%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 20% 98%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
+    --border: 233 64% 24%;
+    --input: 233 64% 24%;
     --ring: 262.1 83.3% 57.8%;
     --radius: 0.5rem;
     --chart-1: 12 76% 61%;
@@ -134,6 +134,6 @@
     @apply border-border;
   }
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply bg-background font-sans text-foreground antialiased;
   }
 }

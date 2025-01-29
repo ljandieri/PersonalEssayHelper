@@ -6,12 +6,19 @@ import { Tools } from '@/features/tools';
 import { Shop } from '@/features/shop';
 import { Account } from '@/features/account';
 import { Help } from '@/features/help';
+import { SignUp } from '@/features/authentication';
+import { SignIn } from '@/features/authentication/routes/SignIn';
+import { ProtectedRoute } from './ProtectedRoute';
 
 export function AppRoutes() {
   const routes = [
     {
       path: '/',
-      element: <AppLayout />,
+      element: (
+        <ProtectedRoute>
+          <AppLayout />
+        </ProtectedRoute>
+      ),
       children: [
         {
           path: '/',
@@ -42,6 +49,14 @@ export function AppRoutes() {
           element: <Help />,
         },
       ],
+    },
+    {
+      path: '/signup',
+      element: <SignUp />,
+    },
+    {
+      path: '/signin',
+      element: <SignIn />,
     },
   ];
 
